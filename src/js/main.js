@@ -1,9 +1,7 @@
-// Commect styles
 import '../scss/main.scss';
 
 import * as bodyScrollLock from 'body-scroll-lock';
 
-// Sidebar menu
 const refsMenu = {
   openMenuBtn: document.querySelector('.js-menu-open'),
   closeMenuBtn: document.querySelector('.js-menu-close'),
@@ -25,7 +23,6 @@ const toggleMenu = () => {
 refsMenu.openMenuBtn.addEventListener('click', toggleMenu);
 refsMenu.closeMenuBtn.addEventListener('click', toggleMenu);
 
-// Close the mobile menu on wider screens if the device orientation changes
 window.matchMedia('(min-width: 1200px)').addEventListener('change', event => {
   if (!event.matches) return;
 
