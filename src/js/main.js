@@ -1,6 +1,6 @@
 import '../scss/main.scss';
 
-import * as bodyScrollLock from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 const refsMenu = {
   openMenuBtn: document.querySelector('.js-menu-open'),
@@ -14,10 +14,8 @@ const toggleMenu = () => {
   refsMenu.openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
   refsMenu.overlayMenu.classList.toggle('is-open');
 
-  const scrollLockMethod = !isMenuOpen
-    ? 'disableBodyScroll'
-    : 'enableBodyScroll';
-  bodyScrollLock[scrollLockMethod](document.body);
+  const scrollLockMethod = !isMenuOpen ? disableBodyScroll : enableBodyScroll;
+  scrollLockMethod(document.body);
 };
 
 refsMenu.openMenuBtn.addEventListener('click', toggleMenu);
@@ -28,5 +26,5 @@ window.matchMedia('(min-width: 1200px)').addEventListener('change', event => {
 
   refsMenu.overlayMenu.classList.remove('is-open');
   refsMenu.openMenuBtn.setAttribute('aria-expanded', false);
-  bodyScrollLock.enableBodyScroll(document.body);
+  enableBodyScroll(document.body);
 });
