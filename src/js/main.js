@@ -1,4 +1,3 @@
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import '../scss/main.scss';
 
 const refsMenu = {
@@ -12,9 +11,6 @@ const toggleMenu = () => {
     refsMenu.openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
   refsMenu.openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
   refsMenu.overlayMenu.classList.toggle('is-open');
-
-  const scrollLockMethod = !isMenuOpen ? disableBodyScroll : enableBodyScroll;
-  scrollLockMethod(document.body);
 };
 
 refsMenu.openMenuBtn.addEventListener('click', toggleMenu);
