@@ -1,6 +1,5 @@
-import '../scss/main.scss';
-
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import '../scss/main.scss';
 
 const refsMenu = {
   openMenuBtn: document.querySelector('.js-menu-open'),
